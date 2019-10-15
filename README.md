@@ -5,11 +5,12 @@
    ### 初步定为：vue.js + spring-boot + mysql
    
       前后端分离，开发人员可独立开发，通过API进行交互。
-   ![学习地址](https://juejin.im/post/59097cd7a22b9d0065fb61d2#heading-0)
+   
    
    #### vue开发：
    
       事先需了解node.js和npm相关知识，安装node.js中会嵌入npm，学习可以通过网上视频教学和官网文档。
+   [学习地址](https://juejin.im/post/59097cd7a22b9d0065fb61d2#heading-0)
     
    #### spring-boot开发：
    

@@ -5,6 +5,7 @@
    ### 初步定为：vue.js + spring-boot + mysql
    
       前后端分离，开发人员可独立开发，通过API进行交互。
+      [版本](https://juejin.im/post/59097cd7a22b9d0065fb61d2#heading-0)
    
    #### vue开发：
    

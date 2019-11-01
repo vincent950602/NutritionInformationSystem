@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Login</title>
+        <!-- 第一种方式:<base> 标签为页面上的所有链接规定默认地址或默认目标 -->
+        <base th:href="@{/}">
+        <!-- 上面定义了base路径标签,那么这里的css路径就可以直接写css路径,Springboot中,static文件夹默认就是静态资源文件夹,所以这里static/css/mycss.css可以不写static/了 -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+
+        <!-- 如果不使用base,那么这种方式也是可以的,@{/你的文件路径},缺陷就是每次引用都必须带上th:src="@{/}"这个才能正确引用,具体用什么方式,看你们自己 -->
+        <script th:src="@{/js/myjs.js}"></script>
+
+    </head>
+    <body οnlοad="f()">
+    <!--<div style="text-align: center;margin:0 auto;width: 1000px; ">-->
+        <div class="mydiv">
+            <h1>配置Thymeleaf模板</h1>
+            <table class="table table-hover">
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th:block>地址</th:block>
+                </tr>
+<!--                <tr th:each="Admin:${list}" >-->
+<!--                    <td th:text="${Admin.id}"></td>-->
+<!--                    <td th:text="${Admin.a_id}"></td>-->
+<!--                    <td th:text="${Admin.a_pwd}"></td>-->
+<!--                </tr>-->
+            </table>
+            <h2>ddd</h2>
+        </div>
+
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="filename" class="fileinput btn-lg" @change="test"/>
+            <button type="button" @click="onUpload"
+                    class="fileinput_button btn btn-lg btn-success">开始上传
+            </button>
+        </form>
+    </body>
+</html>
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>Register</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+</head>
+
+<body class="container">
+    <h1 align="center">列表</h1>
+    <br/>
+    <div class="width:80%">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                     <th>菜谱ID</th>
+                     <th>菜谱类别</th>
+                     <th>菜谱名称</th>
+                     <th>价格</th>
+                     <th>Edit</th>
+                     <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="r : ${recipe}">
+                    <td th:text="${r.menuCode}">001</td>
+                    <td th:text="${r.menuType}">早餐</td>
+                    <td th:text="${r.menuName}">馒头</td>
+                    <td th:text="${r.menuPrice}"></td>
+                    <td><a th:href="@{/toEdit(id=${r.menuCode})}">编辑</a></td>
+                    <td><a th:href="@{/delete(id=${r.id})}" onclick="return confirm('确认删除？')">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-2 control-label">
+            <a href = "AddUser" class="btn btn-info">添加</a>
+        </div>
+    </div>
+    <br/>
+    <table class="table table-hover">
+        <tr>
+            <td><a th:href="@{/list(page=0)}">首页</a></td>
+
+            <td th:switch="${recipe.getPageable().getPageNumber()}">
+                <p th:case="0"> <a th:href="@{/list(page=0)}">上一页</a> </p>
+                <p th:case="*"> <a th:href="@{/list(page=${recipe.getPageable().getPageNumber()}-1)}">上一页</a> </p>
+            </td>
+
+            <td th:switch="${recipe.getPageable().getPageNumber()}">
+                <p th:case="${recipe.getPageable().getPageSize()}"> <a th:href="@{/list(page=${recipe.getPageable().getPageSize()})}">下一页</a> </p>
+                <p th:case="*"> <a th:href="@{/list(page=${recipe.getPageable().getPageNumber()}+1)}">下一页</a> </p>
+            </td>
+
+            <td><a th:href="@{/list(page=${recipe.getPageable().getPageSize()})}">尾页</a></td>
+        </tr>
+    </table>
+</body>
+</html>
